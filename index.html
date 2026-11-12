@@ -21,8 +21,8 @@
     --sans:"Onest", system-ui, sans-serif;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--cream);color:var(--ink);font:400 1.08rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{margin:0;background:var(--cream);color:#2A221E;font:400 1.08rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:var(--choc)}
   :focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:4px}
   .wrap{max-width:74rem;margin:0 auto;padding:0 1.75rem}
@@ -44,20 +44,21 @@
   nav a.lnk:hover{background-size:100% 1px}
   nav .pill{padding:.75rem 1.25rem}
   @media (max-width:900px){nav a.lnk{display:none}}
+  @media (max-width:520px){.brand{font-size:1.65rem;white-space:nowrap}}
 
   /* hero */
   .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 70px);max-height:860px}
   .hero .ph{position:relative;overflow:hidden;background:#d9cbb8}
   .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
-  .hero .tx{display:flex;flex-direction:column;justify-content:center;padding:4rem clamp(1.75rem,5vw,5rem)}
+  .hero .tx{display:flex;flex-direction:column;justify-content:center;padding:4rem clamp(1.75rem,5vw,5rem) 4rem clamp(3rem,6vw,6rem)}
   .hero .kick{color:var(--olive);font-size:1rem;margin:0 0 1.2rem}
   .hero h1{font-size:clamp(2.8rem,5.2vw,4.6rem);line-height:1.02;margin-bottom:1.6rem}
   .hero p.lead{max-width:30rem;margin:0 0 2.2rem;color:var(--ink)}
   @media (max-width:900px){.hero{grid-template-columns:1fr;max-height:none;min-height:0}.hero .ph{height:70vh}.hero .tx{padding:3rem 1.75rem}}
 
   /* marquee */
-  .marquee{background:var(--choc);color:var(--cream);overflow:hidden;padding:1.4rem 0;white-space:nowrap}
-  .marquee .track{display:inline-flex;gap:3rem;animation:run 38s linear infinite;font:400 clamp(2.4rem,5vw,4rem)/1 var(--display)}
+  .marquee{background:var(--choc);color:var(--cream);overflow:hidden;padding:1.25rem 0;white-space:nowrap}
+  .marquee .track{display:inline-flex;gap:3rem;animation:run 42s linear infinite;font:400 clamp(2rem,4.2vw,3.3rem)/1 var(--display)}
   .marquee .track span::after{content:"✦";font-size:.5em;vertical-align:middle;margin-left:3rem;color:var(--olive)}
   .marquee.mint{background:var(--mint);color:var(--choc)}
   .marquee.rev .track{animation-direction:reverse}
@@ -145,11 +146,96 @@
   footer a:first-child{margin-left:0}
   footer small{display:block;opacity:.7;margin-top:.6rem;font-size:.88rem}
 
+
+  /* buttons v4 */
+  .btn{--sh:var(--choc);display:inline-flex;align-items:center;gap:.7rem;font:500 1.06rem/1 var(--sans);text-decoration:none;color:var(--choc);background:var(--mint);border:2px solid var(--choc);border-radius:999px;padding:.95rem 1.6rem .95rem 1rem;box-shadow:0 5px 0 var(--sh);transition:transform .18s ease,box-shadow .18s ease,background .25s;cursor:pointer}
+  .btn .ic{width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;background:var(--choc);color:var(--cream);flex:none}
+  .btn .ic svg{width:1.05rem;height:1.05rem}
+  .btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--sh)}
+  .btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--sh)}
+  .btn.dark{background:var(--choc);color:var(--cream);--sh:#2A1914}
+  .btn.dark .ic{background:var(--cream);color:var(--choc)}
+  .btn.olive{background:var(--olive);color:#fff;border-color:#6E6230;--sh:#6E6230}
+  .btn.olive .ic{background:#fff;color:#6E6230}
+  .btn.plain{padding:.95rem 1.6rem}
+  .btns{display:flex;flex-wrap:wrap;gap:1rem 1.1rem}
+  .hint{margin:1.4rem 0 0;font-size:.95rem;color:var(--muted)}
+
+  /* hero photo frame */
+  .hero .ph{background:transparent;padding:2.5rem 0 2.5rem clamp(1.75rem,4vw,4rem);display:flex;align-items:stretch;overflow:visible}
+  .hero .frame{position:relative;width:100%;border-radius:999px 999px 28px 28px;overflow:hidden;background:#d9cbb8;box-shadow:0 30px 60px -30px rgba(74,46,39,.45)}
+  .hero .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+  .badge{position:absolute;right:-2.2rem;bottom:3.5rem;width:9.5rem;height:9.5rem;border-radius:50%;background:var(--olive);color:#fff;display:grid;place-items:center;z-index:3;box-shadow:0 10px 25px -10px rgba(0,0,0,.35)}
+  .badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+  .badge b{font:400 2.2rem/1 var(--display)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (max-width:900px){.hero .ph{padding:1.5rem 1.5rem 0;height:auto}.hero .frame{aspect-ratio:4/5;max-height:72vh}.badge{right:.5rem;bottom:-1.5rem;width:7.5rem;height:7.5rem}.badge b{font-size:1.8rem}}
+
+  /* price table */
+  .ptable{width:100%;border-collapse:separate;border-spacing:0;background:var(--cream);border:2px solid var(--choc);border-radius:22px;overflow:hidden}
+  .ptable th{font:500 .9rem/1.3 var(--sans);color:var(--muted);text-align:left;padding:1.1rem 1.5rem;background:var(--mint);border-bottom:2px solid var(--choc)}
+  .ptable td{padding:1.5rem;border-top:1px solid var(--line);vertical-align:middle}
+  .ptable tbody tr:first-child td{border-top:0}
+  .ptable .nm{font:400 1.85rem/1.05 var(--display);color:var(--ink);display:block}
+  .ptable .sub{display:block;font-size:.93rem;color:var(--muted);margin-top:.35rem}
+  .ptable .num{font:400 2rem/1 var(--display);color:var(--choc);white-space:nowrap}
+  .ptable .dur{white-space:nowrap;color:var(--ink)}
+  .ptable tbody tr{transition:background .25s}
+  .ptable tbody tr:hover{background:#FFF0DC}
+  .pay{margin-top:1.75rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem 2.5rem;align-items:center;background:var(--mint);border-radius:22px;padding:1.75rem 2rem}
+  .pay h3{font-size:1.9rem;margin-bottom:.4rem}
+  .pay p{margin:0;color:var(--ink);max-width:40rem}
+  .pay small{display:block;margin-top:.5rem;color:var(--muted);font-size:.93rem}
+  @media (max-width:760px){
+    .ptable,.ptable tbody,.ptable tr,.ptable td{display:block;width:100%}
+    .ptable thead{display:none}
+    .ptable{border:0;background:transparent;border-radius:0;overflow:visible}
+    .ptable tr{background:var(--cream);border:2px solid var(--choc);border-radius:20px;margin-bottom:1rem;padding:1.4rem 1.4rem .6rem}
+    .ptable td{border:0;padding:0 0 .8rem;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+    .ptable td:first-child{display:block;padding-bottom:1rem;border-bottom:1px solid var(--line);margin-bottom:.9rem}
+    .ptable td[data-l]::before{content:attr(data-l);color:var(--muted);font:400 .95rem/1.3 var(--sans)}
+    .pay{grid-template-columns:1fr;padding:1.5rem}
+  }
+
+  /* reads v4 */
+  .reads .card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:1rem;min-height:15rem;padding:1.9rem;border-radius:22px;background:rgba(255,246,234,.06);border:1px solid rgba(255,246,234,.22);color:var(--cream);transition:background .3s,transform .3s,border-color .3s}
+  .reads .card:hover{background:rgba(255,246,234,.12);transform:translateY(-4px);border-color:rgba(255,246,234,.5)}
+  .reads .card:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+  .reads .card b{font:400 1.8rem/1.08 var(--display)}
+  .reads .card p{margin:0;font-size:.97rem;line-height:1.55;opacity:.78}
+  .reads .card .more{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;color:#E7D9A6}
+  .reads .card .more svg{width:1rem;height:1rem;transition:transform .25s}
+  .reads .card:hover .more svg{transform:translateX(4px)}
+  dialog.post{border:0;padding:0;width:min(46rem,100vw - 2rem);max-height:calc(100vh - 3rem);border-radius:26px;background:var(--cream);color:var(--ink);box-shadow:0 40px 80px -20px rgba(31,26,23,.5)}
+  dialog.post::backdrop{background:rgba(31,26,23,.55);backdrop-filter:blur(4px)}
+  dialog.post[open]{animation:pop .35s cubic-bezier(.2,.7,.2,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(24px)}}
+  .post .in{padding:3rem clamp(1.5rem,5vw,3.5rem) 2.5rem}
+  .post .x{position:sticky;top:0;float:right;margin:1rem 1rem 0 0;width:2.8rem;height:2.8rem;border-radius:50%;border:2px solid var(--choc);background:var(--mint);color:var(--choc);font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
+  .post .x:hover{background:var(--choc);color:var(--cream)}
+  .post .kick{color:var(--olive);font-size:.95rem;margin:0 0 .6rem}
+  .post h2{font-size:clamp(2.2rem,5vw,3rem);line-height:1.04;margin:0 0 1.8rem;max-width:20ch}
+  .post article p{margin:0 0 1.15rem;font-size:1.08rem;line-height:1.75}
+  .post article h3{font-size:1.75rem;margin:2.2rem 0 .9rem;color:var(--choc)}
+  .post .src{margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;font-size:.95rem;color:var(--muted)}
+
+  /* channel tiles */
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;text-align:left}
+  .tile{display:flex;flex-direction:column;gap:.9rem;padding:1.4rem;border:2px solid var(--choc);border-radius:22px;background:var(--cream);color:var(--ink);text-decoration:none;box-shadow:0 5px 0 var(--choc);transition:transform .18s,box-shadow .18s,background .25s}
+  .tile:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--choc);background:var(--mint)}
+  .tile .ic{width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--choc);color:var(--cream)}
+  .tile .ic svg{width:1.45rem;height:1.45rem}
+  .tile b{font:400 1.6rem/1.05 var(--display)}
+  .tile span{font-size:.92rem;color:var(--muted);margin-top:-.5rem}
+  @media (max-width:1000px){.tiles{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:620px){.tiles{grid-template-columns:1fr 1fr}.tile b{font-size:1.4rem}.tile:last-child{grid-column:span 2}}
+
   /* reveal */
   .rv{opacity:0;transform:translateY(42px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
   .rv.in{opacity:1;transform:none}
   .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
   @media (prefers-reduced-motion:reduce){
+    .badge svg{animation:none}
     html{scroll-behavior:auto}
     .rv{opacity:1;transform:none;transition:none}
     .marquee .track{animation:none}
@@ -166,22 +252,29 @@
       <a class="lnk" href="#about">Обо мне</a>
       <a class="lnk" href="#formats">Стоимость</a>
       <a class="lnk" href="#read">Читать</a>
-      <a class="pill" href="#contact">Записаться</a>
+      <a class="btn dark plain" style="padding:.7rem 1.3rem;font-size:1rem;box-shadow:0 4px 0 #2A1914" href="#contact">Записаться</a>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <div class="ph"><img src="photo.jpg" alt="Антон Зарипов" width="880" height="1100"></div>
+    <div class="ph">
+      <div class="frame"><img src="portrait.webp" alt="Антон Зарипов" width="960" height="1200" fetchpriority="high"></div>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text font-family="Onest, sans-serif" font-size="17" letter-spacing="2.2" fill="#fff"><textPath href="#circ">гештальт-терапия ✦ пары и семьи ✦ группы ✦</textPath></text></svg>
+        <b>✦</b>
+      </div>
+    </div>
     <div class="tx">
       <p class="kick rv">Психолог, гештальт- и семейный терапевт</p>
       <h1 class="rv d1">Найду тебя там, где ты себя оставил</h1>
       <p class="lead rv d2">Работаю со взрослыми индивидуально, с парами и в группах. Онлайн из любой страны и очно в Набережных Челнах.</p>
-      <div class="pills rv d3">
-        <a class="pill dark" href="https://t.me/persevit">Написать в Telegram</a>
-        <a class="pill" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag">Написать в MAX</a>
+      <div class="btns rv d3">
+        <a class="btn dark" href="https://t.me/persevit"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.2 3.7 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.6-1.2zM9.2 13.8l8.6-5.5c.4-.3.8-.1.5.2l-7.1 6.5-.3 3.2-1.7-4.4z"/></svg></span>Написать в Telegram</a>
+        <a class="btn" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3c-5 0-9 3.6-9 8.1 0 2.4 1.1 4.5 2.9 6L5.2 21l4.3-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8.1S17 3 12 3zm-4 9.3a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg></span>Написать в MAX</a>
       </div>
+      <p class="hint rv d3">Первый шаг простой: напишите пару слов, я отвечу и предложу время встречи.</p>
     </div>
   </section>
 
@@ -264,7 +357,7 @@
           <li class="rv">Переподготовка «Психолог, преподаватель психологии», 1500 часов, Институт имени Б.&nbsp;Д.&nbsp;Карвасарского</li>
           <li class="rv">Регулярная супервизия и личная терапия</li>
         </ul>
-        <p class="rv" style="margin-top:1.75rem"><a class="pill" href="https://www.b17.ru/persevita/">Дипломы и сертификаты</a></p>
+        <p class="rv" style="margin-top:2rem"><a class="btn" href="https://www.b17.ru/persevita/"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span>Дипломы и сертификаты</a></p>
       </div>
     </div>
   </section>
@@ -274,13 +367,23 @@
   <section class="about" id="formats">
     <div class="wrap">
       <h2 class="sec-title rv">Форматы и стоимость</h2>
-      <div class="prices">
-        <div class="price rv"><h3>Индивидуальная терапия</h3><span class="dur">55 минут</span><div class="sum">4&nbsp;000&nbsp;₽<small>онлайн; очно 4&nbsp;500&nbsp;₽</small></div></div>
-        <div class="price rv d1"><h3>Парная терапия</h3><span class="dur">90 минут</span><div class="sum">6&nbsp;000&nbsp;₽<small>онлайн; очно 7&nbsp;000&nbsp;₽</small></div></div>
-        <div class="price rv d2"><h3>Пара с котерапевтом</h3><span class="dur">90 минут, двое терапевтов</span><div class="sum">8&nbsp;000&nbsp;₽<small>онлайн или очно</small></div></div>
-        <div class="price rv d3"><h3>Групповая терапия</h3><span class="dur">150–180 минут</span><div class="sum">3&nbsp;000&nbsp;₽<small>за встречу; о наборе пишу в канале</small></div></div>
+      <table class="ptable rv">
+        <thead><tr><th scope="col">Формат</th><th scope="col">Длительность</th><th scope="col">Онлайн</th><th scope="col">Очно, Набережные Челны</th></tr></thead>
+        <tbody>
+          <tr><td><span class="nm">Индивидуальная терапия</span><span class="sub">Встреча один на один</span></td><td data-l="Длительность" class="dur">55 минут</td><td data-l="Онлайн" class="num">4&nbsp;000&nbsp;₽</td><td data-l="Очно" class="num">4&nbsp;500&nbsp;₽</td></tr>
+          <tr><td><span class="nm">Парная терапия</span><span class="sub">Для пар и семей</span></td><td data-l="Длительность" class="dur">90 минут</td><td data-l="Онлайн" class="num">6&nbsp;000&nbsp;₽</td><td data-l="Очно" class="num">7&nbsp;000&nbsp;₽</td></tr>
+          <tr><td><span class="nm">Пара с котерапевтом</span><span class="sub">С парой работают двое терапевтов</span></td><td data-l="Длительность" class="dur">90 минут</td><td data-l="Онлайн" class="num">8&nbsp;000&nbsp;₽</td><td data-l="Очно" class="num">8&nbsp;000&nbsp;₽</td></tr>
+          <tr><td><span class="nm">Групповая терапия</span><span class="sub">О наборе в группу пишу в канале</span></td><td data-l="Длительность" class="dur">150–180 минут</td><td data-l="Стоимость" class="num" colspan="2"><span>3&nbsp;000&nbsp;₽ <span class="sub" style="display:inline;font:400 .93rem var(--sans)">за встречу</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="pay rv">
+        <div>
+          <h3>Живёте не в России?</h3>
+          <p>Оплатить сессию можно иностранной картой через Lava.top. Сумма считается по курсу на день оплаты.</p>
+          <small>Оплата вносится не позже чем за час до встречи. Условия отмены и переноса описаны в <a href="dogovor.html">контракте</a>.</small>
+        </div>
+        <a class="btn dark" href="https://app.lava.top/persevita"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6 15h4"/></svg></span>Оплатить иностранной картой</a>
       </div>
-      <p class="note rv">Если вы живёте не в России, можно оплатить иностранной картой. Сумма считается по курсу на день оплаты.</p>
     </div>
   </section>
 
@@ -297,14 +400,14 @@
           </ol>
         </div>
         <div>
-          <div class="pills rv" style="margin-top:.5rem">
-            <a class="pill dark" href="https://t.me/persevit">Написать в Telegram</a>
-            <a class="pill" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag">Написать в MAX</a>
-          </div>
-          <div class="docs rv" style="background:var(--cream)">
+          <div class="btns rv">
+        <a class="btn dark" href="https://t.me/persevit"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.2 3.7 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.6-1.2zM9.2 13.8l8.6-5.5c.4-.3.8-.1.5.2l-7.1 6.5-.3 3.2-1.7-4.4z"/></svg></span>Написать в Telegram</a>
+        <a class="btn" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3c-5 0-9 3.6-9 8.1 0 2.4 1.1 4.5 2.9 6L5.2 21l4.3-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8.1S17 3 12 3zm-4 9.3a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg></span>Написать в MAX</a>
+      </div>
+          <div class="docs rv" style="background:var(--cream);margin-top:2.5rem">
             <h3>Документы</h3>
             <p><a href="dogovor.html">Контракт на психотерапию</a> и <a href="soglasie.html">согласие на обработку персональных данных</a>.</p>
-            <a class="pill" href="podpisat.html">Подписать онлайн</a>
+            <a class="btn olive" href="podpisat.html"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span>Подписать онлайн</a>
           </div>
           <p class="crisis rv">Я не оказываю экстренную помощь. Если вам сейчас очень плохо или вы опасаетесь за свою жизнь, звоните 112.</p>
         </div>
@@ -315,14 +418,13 @@
   <section class="panel choc" id="read" style="margin-top:0;border-radius:3rem 3rem 0 0">
     <div class="wrap">
       <h2 class="sec-title rv">Почитать для начала</h2>
-      <div class="reads">
-        <a class="rv" href="https://t.me/metapoh/196"><b>Чем терапия отличается от консультации</b><span>Читать в канале</span></a>
-        <a class="rv d1" href="https://t.me/metapoh/219"><b>Почему пары годами ругаются об одном и том же</b><span>Читать в канале</span></a>
-        <a class="rv d2" href="https://t.me/metapoh/218"><b>Есть ли смысл в извинениях</b><span>Читать в канале</span></a>
-        <a class="rv" href="https://t.me/metapoh/113"><b>Слияние — это хорошо или плохо</b><span>Читать в канале</span></a>
-        <a class="rv d1" href="https://t.me/metapoh/225"><b>Почему нам сложно принимать решения</b><span>Читать в канале</span></a>
-        <a class="rv d2" href="https://t.me/metapoh/221"><b>Рождение ребёнка ещё не делает мужчину отцом</b><span>Читать в канале</span></a>
-      </div>
+      <p class="rv" style="margin:-1.5rem 0 2.5rem;opacity:.75;max-width:36rem">Несколько моих текстов о терапии и отношениях. Нажмите на карточку, чтобы прочитать здесь же.</p>
+      <div class="reads"><button type="button" class="card rv" data-post="196" aria-haspopup="dialog"><b>Чем терапия отличается от консультации</b><p>Терапия отличается от консультации тем, что клиент приходит получить опыт отношений, чтобы смогли случиться изменения. Терапия вообще не является…</p><span class="more">Читать, 2 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="card rv d1" data-post="219" aria-haspopup="dialog"><b>Почему пары годами ругаются об одном и том же</b><p>Если вы с партнёром часто ругаетесь, у меня для вас новость: скорее всего, это одна и та же ссора в разных декорациях. Романтические комедии часто…</p><span class="more">Читать, 2 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="card rv d2" data-post="218" aria-haspopup="dialog"><b>Есть ли смысл в извинениях?</b><p>Я считаю, что нужно попробовать отказаться в отношениях от концепта «просить прощения». Это мифический социальный ритуал, который скорее наносит вред…</p><span class="more">Читать, 2 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="card rv" data-post="113" aria-haspopup="dialog"><b>Слияние — это хорошо или плохо?</b><p>Это не хорошо и не плохо. Мы часто слышим этот термин, когда говорят про романтические отношения, родительские или про отношения в группе…</p><span class="more">Читать, 1 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="card rv d1" data-post="225" aria-haspopup="dialog"><b>Почему нам сложно принимать решения?</b><p>Я последнее время перевожу «The Waste Land» Томаса Элиота и читаю «Фауста». И заметил, как много там говорят про невозможность выбора. Поэтому…</p><span class="more">Читать, 2 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button type="button" class="card rv d2" data-post="221" aria-haspopup="dialog"><b>Рождение ребёнка ещё не делает мужчину отцом</b><p>Женщина становится матерью (хотя бы физически) спустя 9 месяцев. Как становятся отцами? Самого появления ребёнка недостаточно для того, чтобы стать…</p><span class="more">Читать, 3 мин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div>
     </div>
   </section>
 
@@ -330,16 +432,89 @@
     <div class="wrap">
       <h2 class="sec-title rv">Мои каналы и страницы</h2>
       <p class="rv">Пишу о терапии, отношениях и о том, как устроена психика, простыми словами.</p>
-      <div class="pills rv">
-        <a class="pill" href="https://t.me/metapoh">Telegram-канал</a>
-        <a class="pill" href="https://max.ru/channel_metapoh">Канал в MAX</a>
-        <a class="pill" href="https://instagram.com/persevita.psy">Instagram</a>
-        <a class="pill" href="https://vk.ru/persevita_psy">ВКонтакте</a>
-        <a class="pill" href="https://www.b17.ru/persevita/">b17.ru</a>
+      <div class="tiles">
+        <a class="tile rv" href="https://t.me/metapoh"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.2 3.7 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.6-1.2zM9.2 13.8l8.6-5.5c.4-.3.8-.1.5.2l-7.1 6.5-.3 3.2-1.7-4.4z"/></svg></span><b>Telegram</b><span>Канал «Метафизика похмелья»</span></a>
+        <a class="tile rv d1" href="https://max.ru/channel_metapoh"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3c-5 0-9 3.6-9 8.1 0 2.4 1.1 4.5 2.9 6L5.2 21l4.3-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8.1S17 3 12 3zm-4 9.3a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg></span><b>MAX</b><span>Тот же канал в MAX</span></a>
+        <a class="tile rv d2" href="https://instagram.com/persevita.psy"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></span><b>Instagram</b><span>@persevita.psy</span></a>
+        <a class="tile rv d1" href="https://vk.ru/persevita_psy"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="16.2" text-anchor="middle" font-family="Onest,Arial,sans-serif" font-size="12.5" font-weight="800" fill="currentColor">VK</text></svg></span><b>ВКонтакте</b><span>persevita_psy</span></a>
+        <a class="tile rv d2" href="https://www.b17.ru/persevita/"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="15.8" text-anchor="middle" font-family="Onest,Arial,sans-serif" font-size="11" font-weight="800" fill="currentColor">b17</text></svg></span><b>b17.ru</b><span>Профиль и дипломы</span></a>
       </div>
     </div>
   </section>
 </main>
+<dialog class="post" id="p196" aria-labelledby="pt196"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">Из канала «Метафизика похмелья»</p><h2 id="pt196">Чем терапия отличается от консультации</h2><article><p>Терапия отличается от консультации тем, что клиент приходит получить опыт отношений, чтобы смогли случиться изменения. Терапия вообще не является консультацией.</p>
+<p>Терапия, упрощенно, выглядит так: изучаем опыт клиента и то, как он взаимодействует со средой ➡️ клиент осознает, как он действует в среде ➡️ терапевт в рамках терапевтических отношений предлагает эксперимент ➡️ эксперимент ➡️ клиент ассимилирует опыт.</p>
+<p>Поэтому я всегда повторяю, что изменения невозможны без получения опыта. Невозможно выйти из депрессии, не прилагая усилий: нужно встать с кровати, помыться, пойти к психиатру. Невозможно наладить отношения в паре без того, чтобы остановить обвинения в адрес друг друга, начать говорить и слушать.</p>
+<p>Осознание проблемы или паттернов поведения ничего не даст без попытки начать действовать иначе.</p>
+<p>Когда во время сессии дают советы, это неправильно не потому, что это неэтично, а потому, что это просто не является терапией.</p>
+<p>Краткосрочная терапия для реальных изменений в работе психики неэффективна не потому, что нет нужных инструментов, а потому, что для того, чтобы развернуть эксперимент, нужно время, чтобы понять, какой именно опыт нужен клиенту, и чтобы у него появилась готовность в него пойти.</p>
+<p>В конечном итоге часть терапевтических отношений это встреча с разочарованием в терапевте. Поэтому терапию так сложно продавать: «клиент не всегда прав». В любом случае это случится, потому что, как и в любых отношениях, приходит момент, когда мы видим другого человека таким, какой он есть, и нам нужно справиться с тем, что он не соответствует нашим ожиданиям и представлениям о нем, и научиться оставаться в этих отношениях, пробуя новые способы взаимодействия.</p>
+<p>Терапия может заканчиваться там, где клиент и терапевт видят друг друга такими, какие они есть.</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/196">Этот пост в Telegram-канале</a></div></div></dialog>
+<dialog class="post" id="p219" aria-labelledby="pt219"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">coitus interruptus</p><h2 id="pt219">Почему пары годами ругаются об одном и том же</h2><article><p>Если вы с партнёром часто ругаетесь, у меня для вас новость: скорее всего, это одна и та же ссора в разных декорациях.</p>
+<p>Романтические комедии часто заканчиваются свадьбой, потому что это хорошая финальная нота. Если продолжить, получились бы «Сцены из супружеской жизни» Ингмара Бергмана. Мне, честно говоря, это больше по душе.</p>
+<p>Культура, которая воспитала нас на идее «и жили они долго и счастливо», к реальности не подготовила. Вступая в брак, мы наивно полагаем: ну всё, теперь меня всегда будут поддерживать, обслуживать и любить безусловно. И когда это не соответствует нашим ожиданиям, мы задумываемся «а того ли я человека выбрал?».</p>
+<h3>Неприятная новость</h3>
+<p>У многих пар есть один главный конфликт. Он может начаться ещё в первые месяцы отношений. С тех пор пара ругается об одном и том же в разных сюжетах: немытая посуда, мама, которая лезет в отношения, деньги, кто первым извинился, куда ехать в отпуск. А за этим часто скрывается, например, «я тебе не важна» или «ты меня контролируешь».</p>
+<p>Исследования Джона Готтмана говорят о том же: большая часть конфликтов в паре не решается окончательно. Пары, которые остаются вместе, не закрывают эти темы. Они учатся в них находиться и приспосабливаются.</p>
+<h3>Приятная новость</h3>
+<p>Пары, которые выглядят счастливыми, и пары, которые разводятся, часто ругаются примерно об одном и том же. Так что сам по себе конфликт не обязательно разрушит отношения. Он может сделать их крепче, если научиться творчески приспосабливаться, а не воевать.</p>
+<h3>Чем разрушающий конфликт отличается от созидающего?</h3>
+<p>В разрушающем цель — победить, наказать, доказать свою правоту. В созидающем — быть услышанным и услышать.</p>
+<p>В разрушающем напротив враг, от которого хочется избавиться. В созидающем — человек, с которым вы спорите, но которого не хотите потерять.</p>
+<p>Важная оговорка: всё это не про отношения, где есть насилие или постоянный контроль. Там идея, чтобы заметить это и удостовериться в том, что эти отношения невозможно изменить и по возможности отказаться от них. Но это другая история.</p>
+<p>Я семейный терапевт, и большая часть моей практики — семейные пары. А пишу я об этом почему-то никогда. Исправляюсь.</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/219">Этот пост в Telegram-канале</a></div></div></dialog>
+<dialog class="post" id="p218" aria-labelledby="pt218"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">Из канала «Метафизика похмелья»</p><h2 id="pt218">Есть ли смысл в извинениях?</h2><article><p>Я считаю, что нужно попробовать отказаться в отношениях от концепта «просить прощения».</p>
+<p>Это мифический социальный ритуал, который скорее наносит вред отношениям, нежели способствует их развитию.</p>
+<p>Если мы нанесли другому ущерб, то есть смысл этот ущерб возместить, но что мы делаем, когда просим прощения?</p>
+<p>• Выстраиваем иерархию в отношениях. Появляется тот, кто снизу/сверху. Прося прощения, я наделяю властью другого над собой решать, продолжать мне испытывать чувство вины или же снять её с меня.</p>
+<p>• Останавливаем другого в его чувствах. Мы говорим «прости меня», чтобы скорее облегчить свои переживания, и смещаем фокус с его злости, разочарования, обиды на свои чувства. Он должен сконтейнировать свои эмоции. При этом он остаётся всё в тех же чувствах, а контакт обрывается, ничем не разрешаясь.</p>
+<p>• Заменяем реальное возмещение ущерба словами: «Я же уже извинился, что ты ещё от меня хочешь?». В этом случае в иерархии у просящего прощения позиция сверху, где он по сути отказывается возмещать ущерб и хочет скорее прервать контакт, чтобы не испытывать вину.</p>
+<h3>Что вместо этого сделать для развития отношений?</h3>
+<p>В ситуации, когда мы нанесли вред другому, нарушив его границы, разрушив его картину реальности и чувство безопасности, я предлагаю следующее:</p>
+<p>1. Признать общую реальность: «Я вижу, что сделал тебе больно».</p>
+<p>2. Признать нанесение ущерба: «Мне жаль, что мои действия привели к такому результату».</p>
+<p>3. Возместить ущерб. Если ущерб нанесён физический, то: «Я вижу, как тебе была дорога эта ваза, я её склею/куплю новую». Если моральный, то принять, что человек свободен в выражении злости и обиды, выдерживать её, оставаться с ним и быть открытым к диалогу, не останавливая проживание опыта другого.</p>
+<p>4. Взять ответственность за будущее: «Я понимаю ЧТО я сделал, и в будущем поступлю иначе, учитывая тебя».</p>
+<p>Есть случаи, когда возмещать ущерб не нужно (и не хочется), а мы испытываем невротическую вину — чувство ответственности за то, что находится вне нашего контроля и выбора. Но это уже совсем другая история…</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/218">Этот пост в Telegram-канале</a></div></div></dialog>
+<dialog class="post" id="p113" aria-labelledby="pt113"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">Из канала «Метафизика похмелья»</p><h2 id="pt113">Слияние — это хорошо или плохо?</h2><article><p>Это не хорошо и не плохо.</p>
+<p>Мы часто слышим этот термин, когда говорят про романтические отношения, родительские или про отношения в группе.</p>
+<p>Конфлюенция (слияние) — это состояние, когда мы сливаемся с другим человеком или со средой и не можем определить, что подходит нам, а что является проекцией эмоций или переживаний других.</p>
+<p>Например, когда ваш партнёр грустит, вы тоже начинаете грустить, хотя до этого были весёлыми. И вы не понимаете — это вы грустите или просто перенимаете состояние партнёра. Это происходит неосознанно и может быть связано с желанием быть ближе.</p>
+<p>Или, например, когда вы постоянно говорите «мы» в отношениях. Вы принимаете мнение партнёра, даже если оно противоречит вашему.</p>
+<h3>Чем это может грозить?</h3>
+<p>Потерей индивидуальности и способности выражать свои потребности. Это происходит, потому что иногда нам страшно быть отвергнутыми, страшно вступать в конфликты или из-за низкой самооценки.</p>
+<h3>Слияние бывает полезным</h3>
+<p>Когда ребёнок учится эмоциям: он повторяет за родителями, видит, как они радуются, и учится позитивно реагировать.</p>
+<p>Когда близкому человеку плохо, и вы перенимаете его эмоции, чтобы разделить переживания и сблизиться.</p>
+<p>Когда вы в конфликте с кем-то, принимаете решение отбросить эмоции и пытаетесь решить проблему вместе.</p>
+<p>Когда вы работаете в проекте и идёте к конкретной цели.</p>
+<p>Когда вы идёте на компромисс с партнёром о времяпрепровождении, которое вам не по душе, чтобы провести время вместе.</p>
+<p>Здоровые отношения подразумевают постоянную смену состояния: когда вы находитесь в слиянии и когда выходите из него. Это становится проблемой, если вы всё время находитесь в слиянии.</p>
+<p>Конфлюенция нужна, чтобы сближаться, а осознание слияния — чтобы восстанавливать свои границы.</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/113">Этот пост в Telegram-канале</a></div></div></dialog>
+<dialog class="post" id="p225" aria-labelledby="pt225"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">Из канала «Метафизика похмелья»</p><h2 id="pt225">Почему нам сложно принимать решения?</h2><article><p>Я последнее время перевожу «The Waste Land» Томаса Элиота и читаю «Фауста». И заметил, как много там говорят про невозможность выбора. Поэтому родился этот пост.</p>
+<p>У Гёте Забота описывает человека, которым она завладела: он колеблется, не может решиться, живёт «наполовину» и в конце концов сам себе становится в обузу. Этот отрывок в переводе Бориса Пастернака целиком есть в посте в канале.</p>
+<p>Я часто говорю в терапии, что нам приходится выбирать между двух дерьм. Ирвин Ялом писал, что каждое «да» требует «нет». Каждое решение отсекает другие варианты. Принимая решение, ты берёшь ответственность на себя и сталкиваешься с тем, что отказываешься от того себя, кем мог бы стать, выбрав иначе.</p>
+<p>Поэтому в момент, когда пора отважиться на выбор, мы застываем. Хочется переложить решение на другого человека или дождаться, что всё решится само. Или обесценить один из вариантов, чтобы выбор выглядел вынужденным. Тогда потеря всё равно случится, но как будто не по моей вине.</p>
+<p>Курт Левин назвал это конфликтом «избегание-избегание»: чем ближе подходишь к одному варианту, тем он страшнее, и тебя отбрасывает обратно в середину. Его пример: ребёнок, которому надо либо сделать неприятное задание, либо получить наказание, пытается улизнуть от обоих. Поэтому взрослым приходится ставить «барьеры», чтобы удержать его в ситуации. У взрослых «выход из поля» выглядит как прокрастинация, уход в работу, сериалы, алкоголь, болезнь, ожидание, что всё решится само.</p>
+<p>Но интересно, что и между двумя хорошими вариантами выбирать так же трудно, если они равноценны. Взвесить их невозможно, а выбрав один, ты теряешь другой. И эта потеря весит больше, чем радость от приобретения: по данным исследования 2026 года, ожидание потери бьёт эмоционально примерно в шесть раз сильнее, чем ожидание такой же выгоды.</p>
+<p>Бездействие только кажется безопасным. Вред от своего действия мы оцениваем тяжелее, чем такой же вред от бездействия. Пока ничего не делаешь, напряжение спадает, и это само по себе закрепляет избегание. А цена бездействия отодвигается в будущее и становится незаметной. Сразу после решения люди сильнее жалеют о сделанном, но с годами — о несделанном.</p>
+<p>Я предлагаю посмотреть на это с такой стороны. Застыв в ожидании, в нежитии, в лимбе, мы только отсрочиваем выбор, который всё равно придётся сделать. От людей в возрасте я гораздо чаще слышу сожаление о том, чего они не сделали, чем о том, что сделали.</p>
+<p>Поэтому на решение стоит смотреть не как на «что я потеряю», а как на «кем я стану, когда его приму».</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/225">Этот пост в Telegram-канале</a></div></div></dialog>
+<dialog class="post" id="p221" aria-labelledby="pt221"><button class="x" type="button" aria-label="Закрыть">×</button><div class="in"><p class="kick">Из канала «Метафизика похмелья»</p><h2 id="pt221">Рождение ребёнка ещё не делает мужчину отцом</h2><article><p>Женщина становится матерью (хотя бы физически) спустя 9 месяцев. Как становятся отцами? Самого появления ребёнка недостаточно для того, чтобы стать отцом, необходима также определённая воля. Но если отцовство — это решение, то каждое отцовство требует усыновления, даже если ребёнок матерью законно был рождён от этого отца. Поэтому мы можем сделать вывод, что отец — это психологический и культурный феномен.</p>
+<p>Вспомним фильм «Малыш» Чаплина (1921). Бродяга находит в переулке брошенного ребёнка и сначала растерянно смотрит вверх: не выпал ли тот из окна вместе с помоями. Гениальная деталь! Отцовство начинается не с рождения, а с этого нелепого взгляда, со встречи, к которой никто не был готов. Я бы сказал, с желания отца им стать. Отец и ребёнок открывают для себя друг друга, потом между ними постепенно рождаются отношения.</p>
+<p>Я сразу уточню, что под отцовскими функциями я скорее понимаю не функции того, кто зачал, а того человека, который станет выполнять их в дальнейшем. Это особенно характерно, кстати, для России, так как в нашем обществе часто создаются чисто «женские семьи». Эти функции вынуждены выполнять в таком случае и бабушки, тёти, тренеры, отчимы и так далее.</p>
+<p>И одна из отцовских функций — это «разделение».</p>
+<p>Винникотт говорил, что «младенца самого по себе не существует». На раннем этапе младенец не существует без матери, потому что у него ещё нет собственного целостного «Я»: его выживание, чувства и ощущение себя складываются только в отношениях с заботящимся взрослым.</p>
+<p>Если мать и ребёнок долгое время находятся в слиянии, то ребёнок растёт и не понимает, где заканчивается мама, а где начинается он сам. А мать остаётся привязанной к ребёнку как к источнику собственной целостности.</p>
+<p>Тут-то и нужен отец (третий), который встанет между матерью и ребёнком и покажет, что есть мир за пределами их пары. Тот, кто даст ребёнку почувствовать, что он может быть отдельным, кто познакомит его с правилами.</p>
+<p>Разделение нужно и самой матери. Когда рядом есть третий, ей не приходится быть для ребёнка всем сразу, и она может стать «достаточно хорошей матерью». Если же эту функцию она берёт на себя, ей сложнее: одними и теми же руками нужно и держать ребёнка, и отпускать его.</p>
+<p>Но отец не может разделить их пару силой. Мать должна его «впустить». Тогда ребёнок видит, что мать смотрит не только на него, что её желание направлено куда-то ещё: на мужчину, работу, свою жизнь.</p>
+<h3>Так как же становятся отцами и для чего?</h3>
+<p>Отцами становятся не по факту рождения ребёнка, а когда принимают решение ими быть. Чаплиновский Бродяга сначала растерянно вверх смотрел, а потом гнался по крышам, чтобы не отдать ребёнка в приют.</p>
+<p>Отцы нужны, чтобы помочь ребёнку стать отдельным и целостным.</p>
+<p>Если такого опыта в детстве не было, взрослый человек зачастую остаётся зависимым от матери, и ему трудно принимать жизненные решения самостоятельно. Или же наоборот: он не выстраивает близких отношений с другими людьми, так как контакт сильно затягивает.</p>
+<p>Это можно исправить во взрослом возрасте. Роль третьего иногда берёт на себя партнёр, учитель или терапевт. Отделиться можно и в тридцать, и в сорок — тогда, когда вы замечаете, что слияние мешает вам жить.</p>
+<p>А научить ребёнка выстраивать границы с миром — это ещё одна отцовская функция. Луиджи Зойя говорит про неё, что это «парадокс отца». От отца требуют одновременно двух противоположных вещей. Об этом в следующем посте.</p></article><div class="src"><span>Антон Зарипов</span><a href="https://t.me/metapoh/221">Этот пост в Telegram-канале</a></div></div></dialog>
 
 <footer>
   <div class="wrap">
@@ -355,6 +530,8 @@
   (function(){
     var fg=document.getElementById('fg'), b=fg.querySelector('button');
     b.addEventListener('click',function(){var on=fg.classList.toggle('swap');b.setAttribute('aria-pressed',on?'true':'false');});
+    document.querySelectorAll('[data-post]').forEach(function(c){c.addEventListener('click',function(){var d=document.getElementById('p'+c.dataset.post);if(d&&d.showModal){d.showModal();d.scrollTop=0;}});});
+    document.querySelectorAll('dialog.post').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close();});d.querySelector('.x').addEventListener('click',function(){d.close();});});
     var els=document.querySelectorAll('.rv');
     if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
