@@ -7,161 +7,154 @@
 <meta name="description" content="Антон Зарипов, психолог, гештальт- и семейный терапевт. Работаю со взрослыми онлайн и очно в Набережных Челнах: индивидуально, с парами, в группах.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Onest:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F2F3EF;
-    --ink:#1D2724;
-    --forest:#1F3A33;
-    --forest-2:#2B4A42;
-    --sage:#A9BCB1;
-    --line:#D5DBD6;
-    --muted:#55635E;
-    --gold:#C7A46A;
-    --serif:"Literata", Georgia, serif;
+    --cream:#FFF6EA;
+    --mint:#E3F2EA;
+    --choc:#4A2E27;
+    --olive:#9C8B45;
+    --ink:#1F1A17;
+    --muted:#6B5D57;
+    --line:#E8DCCB;
+    --display:"Oranienbaum", "Times New Roman", serif;
     --sans:"Onest", system-ui, sans-serif;
-    --measure:38rem;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-  a{color:var(--forest);text-underline-offset:.2em;text-decoration-thickness:1px}
-  a:hover{color:var(--forest-2)}
-  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
-  .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+  body{margin:0;background:var(--cream);color:var(--ink);font:400 1.08rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--choc)}
+  :focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:74rem;margin:0 auto;padding:0 1.75rem}
+  h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;margin:0}
+
+  /* pills */
+  .pill{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:500 1rem/1 var(--sans);text-decoration:none;color:var(--choc);background:var(--mint);border:2px solid var(--choc);border-radius:300px;padding:1rem 1.6rem;transition:background .25s,color .25s,transform .25s}
+  .pill:hover{background:var(--choc);color:var(--cream);transform:translateY(-2px)}
+  .pill.dark{background:var(--choc);color:var(--cream)}
+  .pill.dark:hover{background:var(--olive);border-color:var(--olive)}
+  .pills{display:flex;flex-wrap:wrap;gap:.9rem}
 
   /* header */
-  .top{background:var(--forest);color:var(--paper)}
-  .top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:1.1rem;padding-bottom:1.1rem;gap:1rem}
-  .brand{font:500 1.05rem/1.2 var(--serif);color:var(--paper);text-decoration:none}
-  nav{display:flex;align-items:center;gap:1.5rem}
-  nav a{color:#DCE5E0;text-decoration:none;font-size:.95rem}
-  nav a:hover{color:#fff}
-  nav .pill{color:var(--forest);background:var(--paper);padding:.55rem 1.1rem;border-radius:999px;font-weight:500}
-  nav .pill:hover{color:var(--forest);background:#fff}
-  @media (max-width:860px){nav a:not(.pill){display:none}}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,246,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.9rem;padding-bottom:.9rem}
+  .brand{font:400 2.1rem/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  nav{display:flex;align-items:center;gap:1.6rem}
+  nav a.lnk{color:var(--ink);text-decoration:none;font-size:.97rem;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s}
+  nav a.lnk:hover{background-size:100% 1px}
+  nav .pill{padding:.75rem 1.25rem}
+  @media (max-width:900px){nav a.lnk{display:none}}
 
   /* hero */
-  .hero{background:var(--forest);color:var(--paper);padding:2.5rem 0 0}
-  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:end}
-  .hero .role{color:var(--sage);font-size:1rem;margin:0 0 1rem}
-  .hero h1{font:400 clamp(2.6rem,6vw,4.6rem)/1.02 var(--serif);letter-spacing:-.02em;margin:0 0 1.5rem}
-  .hero .lead{font-size:1.2rem;line-height:1.55;max-width:31rem;margin:0 0 2rem;color:#E4EBE7}
-  .hero .copy{padding-bottom:4rem}
-  .actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font:500 1rem/1 var(--sans);padding:1rem 1.4rem;border-radius:999px;transition:background .2s,color .2s}
-  .btn svg{width:1.15em;height:1.15em;flex:none}
-  .btn-light{background:var(--paper);color:var(--forest)}
-  .btn-light:hover{background:#fff;color:var(--forest)}
-  .btn-ghost{color:var(--paper);box-shadow:inset 0 0 0 1.5px rgba(242,243,239,.55)}
-  .btn-ghost:hover{background:rgba(242,243,239,.1);color:#fff}
-  .hero .note{margin-top:1.25rem;font-size:.92rem;color:var(--sage)}
-  .social{display:flex;align-items:center;gap:.4rem;margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid rgba(169,188,177,.3)}
-  .social span{color:var(--sage);font-size:.9rem;margin-right:.6rem}
-  .social a{display:inline-flex;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;border-radius:50%;color:var(--paper);background:var(--forest-2);transition:background .2s}
-  .social a:hover{background:#36574E;color:#fff}
-  .social svg{width:1.2rem;height:1.2rem}
-  .portrait{margin:0;align-self:end}
-  .portrait img{display:block;width:100%;max-width:22.5rem;margin-left:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12rem 12rem 0 0}
-  @media (max-width:860px){
-    .hero .wrap{grid-template-columns:1fr;gap:0}
-    .portrait{order:-1;margin-bottom:2rem}
-    .portrait img{max-width:18rem;margin:0}
-    .hero .copy{padding-bottom:3rem}
-  }
+  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 70px);max-height:860px}
+  .hero .ph{position:relative;overflow:hidden;background:#d9cbb8}
+  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .hero .tx{display:flex;flex-direction:column;justify-content:center;padding:4rem clamp(1.75rem,5vw,5rem)}
+  .hero .kick{color:var(--olive);font-size:1rem;margin:0 0 1.2rem}
+  .hero h1{font-size:clamp(2.8rem,5.2vw,4.6rem);line-height:1.02;margin-bottom:1.6rem}
+  .hero p.lead{max-width:30rem;margin:0 0 2.2rem;color:var(--ink)}
+  @media (max-width:900px){.hero{grid-template-columns:1fr;max-height:none;min-height:0}.hero .ph{height:70vh}.hero .tx{padding:3rem 1.75rem}}
 
-  /* sections */
-  section{padding:5rem 0}
-  section + section{border-top:1px solid var(--line)}
-  h2{font:400 clamp(1.9rem,3.4vw,2.6rem)/1.15 var(--serif);margin:0 0 2rem;letter-spacing:-.01em}
-  .split{display:grid;grid-template-columns:16rem 1fr;gap:3rem}
-  .split h2{margin:0}
-  @media (max-width:860px){.split{grid-template-columns:1fr;gap:1.5rem}}
-  .body{max-width:var(--measure)}
-  .body p{margin:0 0 1.1rem}
+  /* marquee */
+  .marquee{background:var(--choc);color:var(--cream);overflow:hidden;padding:1.4rem 0;white-space:nowrap}
+  .marquee .track{display:inline-flex;gap:3rem;animation:run 38s linear infinite;font:400 clamp(2.4rem,5vw,4rem)/1 var(--display)}
+  .marquee .track span::after{content:"✦";font-size:.5em;vertical-align:middle;margin-left:3rem;color:var(--olive)}
+  .marquee.mint{background:var(--mint);color:var(--choc)}
+  .marquee.rev .track{animation-direction:reverse}
+  @keyframes run{to{transform:translateX(-50%)}}
 
   /* story */
-  .story{background:#E7EBE6}
-  .story blockquote{margin:0 auto;max-width:46rem;font:400 clamp(1.3rem,2.3vw,1.7rem)/1.55 var(--serif);color:var(--forest)}
-  .story blockquote p{margin:0 0 1.2rem}
-  .story blockquote p:first-child::first-letter{font-size:3.4em;float:left;line-height:.85;padding:.08em .12em 0 0;color:var(--forest-2)}
-  .story cite{display:block;font:400 .95rem/1.4 var(--sans);color:var(--muted);font-style:normal;margin-top:1.5rem}
-
-  /* themes */
-  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
-  .themes h3{font:500 1.3rem/1.3 var(--serif);margin:0 0 1rem;padding-bottom:.9rem;border-bottom:2px solid var(--forest)}
-  .themes ul{list-style:none;padding:0;margin:0}
-  .themes li{padding:.55rem 0;border-bottom:1px solid var(--line);line-height:1.45}
-  .themes .small{font-size:.9rem;color:var(--muted);margin-top:1rem}
-  @media (max-width:860px){.themes{grid-template-columns:1fr}}
-
-  /* approach with vase */
-  .approach{display:grid;grid-template-columns:1fr 17rem;gap:3.5rem;align-items:start}
-  @media (max-width:860px){.approach{grid-template-columns:1fr}}
-  .fg{margin:0}
-  .fg button{all:unset;cursor:pointer;display:block;width:100%;border-radius:4px}
-  .fg button:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+  .story{padding:7rem 0}
+  .story .grid{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  .card-olive{background:var(--olive);color:var(--cream);padding:3rem;border-radius:10px;position:relative;z-index:2;margin-right:-4rem;text-align:center}
+  .card-olive p{font:400 clamp(1.45rem,2.3vw,1.9rem)/1.25 var(--display);margin:0 0 1.2rem}
+  .card-olive p:last-of-type{margin-bottom:0}
+  .card-olive small{display:block;margin-top:1.6rem;font:400 .9rem/1.4 var(--sans);opacity:.85}
+  .fg{margin:0;border-radius:10px;overflow:hidden;background:var(--choc)}
+  .fg button{all:unset;cursor:pointer;display:block;width:100%}
   .fg svg{display:block;width:100%;height:auto}
-  .fg .ground{fill:var(--forest);transition:fill .6s ease}
-  .fg .figure{fill:var(--paper);transition:fill .6s ease}
-  .fg.swap .ground{fill:var(--paper)}
-  .fg.swap .figure{fill:var(--forest-2)}
-  .fg .frame{fill:none;stroke:var(--forest);stroke-width:2;opacity:0;transition:opacity .6s}
-  .fg.swap .frame{opacity:1}
-  .fg figcaption{margin-top:.9rem;font-size:.88rem;line-height:1.5;color:var(--muted)}
+  .fg .ground{fill:var(--choc);transition:fill .7s ease}
+  .fg .figure{fill:var(--cream);transition:fill .7s ease}
+  .fg.swap .ground{fill:var(--cream)}
+  .fg.swap .figure{fill:var(--olive)}
+  .fg-cap{grid-column:2;font-size:.9rem;color:var(--muted);margin-top:1rem;line-height:1.5}
+  @media (max-width:900px){.story{padding:4rem 0}.story .grid{grid-template-columns:1fr}.card-olive{margin:0 1rem -2.5rem;order:0;position:relative;z-index:2}.fg{order:1}.fg-cap{order:2;grid-column:1;margin-top:1rem}.fg{max-height:420px}}
 
-  /* education */
-  ul.edu{list-style:none;padding:0;margin:0;max-width:var(--measure)}
-  ul.edu li{padding:0 0 1.1rem 1.4rem;position:relative}
-  ul.edu li::before{content:"";position:absolute;left:0;top:.65em;width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)}
+  /* panels */
+  .panel{background:var(--mint);border-radius:3rem 3rem 0 0;padding:6rem 0 5rem;margin-top:1rem}
+  .panel.choc{background:var(--choc);color:var(--cream)}
+  .sec-title{font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.02;margin-bottom:3rem;max-width:18ch}
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+  .theme{background:var(--cream);border-radius:14px;padding:2rem 1.75rem}
+  .theme h3{font-size:2rem;line-height:1.05;margin-bottom:1.2rem;color:var(--choc)}
+  .theme ul{list-style:none;margin:0;padding:0}
+  .theme li{padding:.6rem 0;border-top:1px solid var(--line);line-height:1.45;font-size:1rem}
+  @media (max-width:900px){.themes{grid-template-columns:1fr}}
+
+  /* about */
+  .about{padding:7rem 0}
+  .about .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:start}
+  .about .body p{margin:0 0 1.15rem;max-width:36rem}
+  .edu{list-style:none;margin:2.5rem 0 0;padding:0;max-width:36rem}
+  .edu li{padding:1rem 0;border-top:1px solid var(--line)}
+  .edu li:last-child{border-bottom:1px solid var(--line)}
+  .side .sec-title{margin-bottom:1.5rem}
+  @media (max-width:900px){.about .grid{grid-template-columns:1fr;gap:2rem}}
 
   /* prices */
-  table.price{border-collapse:collapse;width:100%;max-width:46rem}
-  .price th,.price td{padding:1.05rem .75rem 1.05rem 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-  .price thead th{font:500 .9rem/1.3 var(--sans);color:var(--muted);border-bottom:2px solid var(--forest)}
-  .price tbody th{font:500 1.15rem/1.35 var(--serif)}
-  .price tbody th span{display:block;font:400 .9rem/1.4 var(--sans);color:var(--muted);margin-top:.15rem}
-  .price td{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
-  .price td small{display:block;font-weight:400;color:var(--muted);white-space:normal;font-size:.85rem}
-  .after-table{max-width:46rem;margin-top:1.5rem;color:var(--muted);font-size:.97rem}
+  .prices{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+  .price{border:2px solid var(--choc);border-radius:16px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;background:var(--cream)}
+  .price h3{font-size:1.9rem;line-height:1.05}
+  .price .dur{color:var(--muted);font-size:.95rem}
+  .price .sum{font:400 2.2rem/1 var(--display);margin-top:auto;padding-top:1rem;color:var(--choc)}
+  .price .sum small{display:block;font:400 .9rem/1.4 var(--sans);color:var(--muted);margin-top:.35rem}
+  .note{margin-top:1.75rem;color:var(--muted);max-width:42rem}
+  @media (max-width:1000px){.prices{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.prices{grid-template-columns:1fr}}
 
   /* booking */
-  ol.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 2rem;max-width:var(--measure)}
-  ol.steps li{counter-increment:s;display:grid;grid-template-columns:2.75rem 1fr;padding:0 0 1.1rem}
-  ol.steps li::before{content:counter(s);font:400 1.6rem/1.05 var(--serif);color:var(--gold)}
-  .btn-dark{background:var(--forest);color:var(--paper)}
-  .btn-dark:hover{background:var(--forest-2);color:#fff}
-  .btn-outline{color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--forest)}
-  .btn-outline:hover{background:var(--forest);color:var(--paper)}
-  .docs{max-width:var(--measure);margin-top:2.25rem;padding:1.25rem 1.4rem;border:1px solid var(--line);border-radius:6px;background:#fff}
-  .docs p{margin:0 0 .6rem}
-  .docs p:last-child{margin:0}
+  .book{padding-top:7rem;padding-bottom:7rem}
+  .book .grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+  ol.steps{list-style:none;counter-reset:s;margin:0;padding:0}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:3.5rem 1fr;padding:1.1rem 0;border-top:1px solid var(--line)}
+  ol.steps li::before{content:counter(s);font:400 2.2rem/1 var(--display);color:var(--olive)}
+  .docs{margin-top:2.25rem;padding:1.75rem;border-radius:14px;background:var(--mint)}
+  .docs h3{font-size:1.9rem;margin-bottom:.8rem}
+  .docs p{margin:0 0 1.1rem}
+  .crisis{margin-top:1.5rem;font-size:.95rem;color:var(--muted)}
+  @media (max-width:900px){.book .grid{grid-template-columns:1fr;gap:2.5rem}}
 
-  /* reading */
-  .reads{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:60rem}
-  .reads a{display:block;padding:1.2rem 1.25rem;background:#fff;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--ink);font:400 1.08rem/1.4 var(--serif);transition:border-color .2s}
-  .reads a:hover{border-color:var(--forest)}
-  @media (max-width:860px){.reads{grid-template-columns:1fr}}
+  /* reads */
+  .reads{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+  .reads a{display:flex;flex-direction:column;justify-content:space-between;gap:2rem;min-height:12rem;padding:1.75rem;border-radius:16px;background:rgba(255,246,234,.07);border:1px solid rgba(255,246,234,.25);color:var(--cream);text-decoration:none;transition:background .3s,transform .3s}
+  .reads a:hover{background:rgba(255,246,234,.14);transform:translateY(-4px)}
+  .reads b{font:400 1.75rem/1.1 var(--display)}
+  .reads span{font-size:.92rem;opacity:.75}
+  @media (max-width:900px){.reads{grid-template-columns:1fr}}
 
   /* channels */
-  .channels{background:var(--forest);color:var(--paper)}
-  .channels h2{color:var(--paper)}
-  .channels .sub{color:var(--sage);margin:-1rem 0 2rem;max-width:var(--measure)}
-  .chgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
-  .chgrid a{display:flex;flex-direction:column;gap:.9rem;padding:1.25rem;border-radius:8px;background:var(--forest-2);color:var(--paper);text-decoration:none;transition:background .2s}
-  .chgrid a:hover{background:#36574E;color:#fff}
-  .chgrid svg{width:1.8rem;height:1.8rem}
-  .chgrid b{font:500 1.05rem/1.3 var(--sans)}
-  .chgrid span{font-size:.88rem;color:var(--sage);line-height:1.35}
-  @media (max-width:1000px){.chgrid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:520px){.chgrid{grid-template-columns:1fr}}
+  .channels{padding:6rem 0 5rem;text-align:center}
+  .channels .sec-title{margin:0 auto 1.25rem}
+  .channels p{color:var(--muted);margin:0 auto 2.5rem;max-width:34rem}
+  .channels .pills{justify-content:center}
 
-  footer{padding:2.5rem 0 3rem;font-size:.92rem;color:var(--muted)}
-  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem}
-  footer a{color:var(--muted)}
-  footer .links a{margin-right:1.4rem}
-  .crisis{max-width:var(--measure);margin-top:2rem;padding:1rem 1.25rem;background:#E7EBE6;border-radius:6px;font-size:.95rem}
+  footer{background:var(--choc);color:var(--cream);padding:3rem 0}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem}
+  footer .brand{color:var(--cream)}
+  footer a{color:var(--cream);opacity:.85;margin-left:1.4rem;font-size:.95rem}
+  footer a:first-child{margin-left:0}
+  footer small{display:block;opacity:.7;margin-top:.6rem;font-size:.88rem}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(42px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .marquee .track{animation:none}
+    *{transition:none!important}
+  }
 </style>
 </head>
 <body>
@@ -169,56 +162,57 @@
   <div class="wrap">
     <a class="brand" href="#">Антон Зарипов</a>
     <nav aria-label="Разделы">
-      <a href="#themes">С чем работаю</a>
-      <a href="#about">Обо мне</a>
-      <a href="#formats">Цены</a>
-      <a href="#channels">Каналы</a>
+      <a class="lnk" href="#themes">С чем работаю</a>
+      <a class="lnk" href="#about">Обо мне</a>
+      <a class="lnk" href="#formats">Стоимость</a>
+      <a class="lnk" href="#read">Читать</a>
       <a class="pill" href="#contact">Записаться</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <div class="hero">
-    <div class="wrap">
-      <div class="copy">
-        <p class="role">Психолог, гештальт- и семейный терапевт</p>
-        <h1>Антон Зарипов</h1>
-        <p class="lead">Работаю со взрослыми: индивидуально, с парами и в группах. Онлайн из любой страны и очно в Набережных Челнах.</p>
-        <div class="actions">
-          <a class="btn btn-light" href="https://t.me/persevit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg> Написать в Telegram</a>
-          <a class="btn btn-ghost" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Написать в MAX</a>
-        </div>
-        <p class="note">Напишите, какой формат вам нужен, и я предложу время.</p>
-        <div class="social" aria-label="Мои каналы">
-          <span>Мои каналы</span>
-          <a href="https://t.me/metapoh" aria-label="Telegram-канал"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg></a>
-          <a href="https://max.ru/channel_metapoh" aria-label="Канал в MAX"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></a>
-          <a href="https://instagram.com/persevita.psy" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></a>
-          <a href="https://vk.ru/persevita_psy" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.8 14.3c2.3.1 4 1.6 4.7 4.2"/></svg></a>
-          <a href="https://www.b17.ru/persevita/" aria-label="b17.ru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></a>
-        </div>
+  <section class="hero">
+    <div class="ph"><img src="photo.jpg" alt="Антон Зарипов" width="880" height="1100"></div>
+    <div class="tx">
+      <p class="kick rv">Психолог, гештальт- и семейный терапевт</p>
+      <h1 class="rv d1">Найду тебя там, где ты себя оставил</h1>
+      <p class="lead rv d2">Работаю со взрослыми индивидуально, с парами и в группах. Онлайн из любой страны и очно в Набережных Челнах.</p>
+      <div class="pills rv d3">
+        <a class="pill dark" href="https://t.me/persevit">Написать в Telegram</a>
+        <a class="pill" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag">Написать в MAX</a>
       </div>
-      <figure class="portrait"><img src="photo.jpg" alt="Антон Зарипов" width="360" height="450"></figure>
-    </div>
-  </div>
-
-  <section class="story" aria-label="Обо мне в двух словах">
-    <div class="wrap">
-      <blockquote>
-        <p>Жил-был когда-то мальчик. Он думал, что любовь — это когда тебя любят всегда, всякого, и не надо ничего делать. Взрослые, думал он, знают, как правильно. А где-то живёт тот самый человек, который поймёт без слов.</p>
-        <p>А потом было утро. Утром болела голова, сухо было во рту, а напротив сидел человек, и он был не такой.</p>
-        <p>Мальчик вырос и стал терапевтом. О чём бы он ни писал, он пишет про то утро, потому что каждый день к нему приходят взрослые и рассказывают: жил-был когда-то мальчик. Или девочка.</p>
-        <cite>Из моего канала «Метафизика похмелья»</cite>
-      </blockquote>
     </div>
   </section>
 
-  <section id="themes">
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Найду тебя там, где ты себя оставил</span><span>Отношения</span><span>Зависимости</span><span>Кризисы</span><span>Горе и утрата</span><span>Найду тебя там, где ты себя оставил</span><span>Отношения</span><span>Зависимости</span><span>Кризисы</span><span>Горе и утрата</span><span>Найду тебя там, где ты себя оставил</span><span>Отношения</span><span>Зависимости</span><span>Кризисы</span><span>Горе и утрата</span><span>Найду тебя там, где ты себя оставил</span><span>Отношения</span><span>Зависимости</span><span>Кризисы</span><span>Горе и утрата</span></div></div>
+
+  <section class="story" aria-label="История">
+    <div class="wrap grid">
+      <div class="card-olive rv">
+        <p>Жил-был когда-то мальчик. Он думал, что любовь — это когда тебя любят всегда, всякого, и не надо ничего делать.</p>
+        <p>А потом было утро. Напротив сидел человек, и он был не такой.</p>
+        <p>Мальчик вырос и стал терапевтом. Каждый день к нему приходят взрослые и рассказывают: жил-был когда-то мальчик. Или девочка.</p>
+        <small>Из моего канала «Метафизика похмелья»</small>
+      </div>
+      <figure class="fg rv d1" id="fg">
+        <button type="button" aria-pressed="false" aria-label="Поменять местами фигуру и фон">
+          <svg viewBox="0 0 400 500" role="img" aria-labelledby="fgt">
+            <title id="fgt">Ваза Рубина: силуэт вазы и два лица, обращённые друг к другу</title>
+            <rect class="ground" width="400" height="500"/>
+            <path class="figure" d="M318.0,0.0 C317.0,6.7 314.3,26.7 312.0,40.0 C309.7,53.3 306.7,67.5 304.0,80.0 C301.3,92.5 299.0,105.8 296.0,115.0 C293.0,124.2 286.3,128.8 286.0,135.0 C285.7,141.2 295.0,146.2 294.0,152.0 C293.0,157.8 286.0,163.7 280.0,170.0 C274.0,176.3 264.7,184.5 258.0,190.0 C251.3,195.5 240.3,199.2 240.0,203.0 C239.7,206.8 252.3,209.5 256.0,213.0 C259.7,216.5 263.0,220.2 262.0,224.0 C261.0,227.8 250.3,231.8 250.0,236.0 C249.7,240.2 259.7,244.7 260.0,249.0 C260.3,253.3 251.0,256.8 252.0,262.0 C253.0,267.2 265.0,273.7 266.0,280.0 C267.0,286.3 261.0,293.7 258.0,300.0 C255.0,306.3 245.3,311.3 248.0,318.0 C250.7,324.7 264.7,332.2 274.0,340.0 C283.3,347.8 297.0,355.0 304.0,365.0 C311.0,375.0 313.3,387.5 316.0,400.0 C318.7,412.5 319.0,423.3 320.0,440.0 C321.0,456.7 321.7,490.0 322.0,500.0 L78.0,500.0 C78.3,490.0 79.0,456.7 80.0,440.0 C81.0,423.3 81.3,412.5 84.0,400.0 C86.7,387.5 89.0,375.0 96.0,365.0 C103.0,355.0 116.7,347.8 126.0,340.0 C135.3,332.2 149.3,324.7 152.0,318.0 C154.7,311.3 145.0,306.3 142.0,300.0 C139.0,293.7 133.0,286.3 134.0,280.0 C135.0,273.7 147.0,267.2 148.0,262.0 C149.0,256.8 139.7,253.3 140.0,249.0 C140.3,244.7 150.3,240.2 150.0,236.0 C149.7,231.8 139.0,227.8 138.0,224.0 C137.0,220.2 140.3,216.5 144.0,213.0 C147.7,209.5 160.3,206.8 160.0,203.0 C159.7,199.2 148.7,195.5 142.0,190.0 C135.3,184.5 126.0,176.3 120.0,170.0 C114.0,163.7 107.0,157.8 106.0,152.0 C105.0,146.2 114.3,141.2 114.0,135.0 C113.7,128.8 107.0,124.2 104.0,115.0 C101.0,105.8 98.7,92.5 96.0,80.0 C93.3,67.5 90.3,53.3 88.0,40.0 C85.7,26.7 83.0,6.7 82.0,0.0 Z"/>
+          </svg>
+        </button>
+      </figure>
+      <p class="fg-cap rv">Ваза или два лица? Нажмите на картинку, и фигура с фоном поменяются местами. В гештальте с этого начинается разговор о том, что сейчас для вас главное.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="themes">
     <div class="wrap">
-      <h2>С чем ко мне приходят</h2>
+      <h2 class="sec-title rv">С чем ко мне приходят</h2>
       <div class="themes">
-        <div>
+        <div class="theme rv">
           <h3>Отношения с собой</h3>
           <ul>
             <li>Эмоциональная зависимость</li>
@@ -231,7 +225,7 @@
             <li>Темы идентичности, сексуальности, гендерного несоответствия</li>
           </ul>
         </div>
-        <div>
+        <div class="theme rv d1">
           <h3>Отношения с другими</h3>
           <ul>
             <li>Конфликты в паре, ревность, обиды</li>
@@ -240,7 +234,7 @@
             <li>Хочется понять, как строить отношения, в которых хорошо обоим</li>
           </ul>
         </div>
-        <div>
+        <div class="theme rv d2">
           <h3>Травма и особенности психики</h3>
           <ul>
             <li>ПТСР и комплексное ПТСР</li>
@@ -254,109 +248,94 @@
     </div>
   </section>
 
-  <section id="about">
-    <div class="wrap split">
-      <h2>Как я работаю</h2>
-      <div class="approach">
-        <div class="body">
-          <p>Мне важен живой и бережный контакт. Я не тороплю и не спешу «исправить» ваше состояние. Вместе мы замечаем, что происходит с вами здесь и сейчас: что вы чувствуете, чего хотите и как сами себя останавливаете. Из этого внимания обычно и появляется опора для изменений.</p>
-          <p>Я спокойно выдерживаю сильные чувства: горе, злость, тревогу, стыд. И помогаю вам тоже их выдерживать, а не отрезать от себя.</p>
-          <p>Регулярно хожу на супервизию и в личную терапию. Если вашему запросу нужен психиатр или другой специалист, скажу об этом прямо и помогу найти помощь.</p>
-        </div>
-        <figure class="fg" id="fg">
-          <button type="button" aria-pressed="false" aria-label="Поменять местами фигуру и фон">
-            <svg viewBox="0 0 400 500" role="img" aria-labelledby="fgt">
-              <title id="fgt">Ваза Рубина: силуэт вазы и два лица, обращённые друг к другу</title>
-              <rect class="ground" width="400" height="500"/>
-              <path class="figure" d="M318.0,0.0 C317.0,6.7 314.3,26.7 312.0,40.0 C309.7,53.3 306.7,67.5 304.0,80.0 C301.3,92.5 299.0,105.8 296.0,115.0 C293.0,124.2 286.3,128.8 286.0,135.0 C285.7,141.2 295.0,146.2 294.0,152.0 C293.0,157.8 286.0,163.7 280.0,170.0 C274.0,176.3 264.7,184.5 258.0,190.0 C251.3,195.5 240.3,199.2 240.0,203.0 C239.7,206.8 252.3,209.5 256.0,213.0 C259.7,216.5 263.0,220.2 262.0,224.0 C261.0,227.8 250.3,231.8 250.0,236.0 C249.7,240.2 259.7,244.7 260.0,249.0 C260.3,253.3 251.0,256.8 252.0,262.0 C253.0,267.2 265.0,273.7 266.0,280.0 C267.0,286.3 261.0,293.7 258.0,300.0 C255.0,306.3 245.3,311.3 248.0,318.0 C250.7,324.7 264.7,332.2 274.0,340.0 C283.3,347.8 297.0,355.0 304.0,365.0 C311.0,375.0 313.3,387.5 316.0,400.0 C318.7,412.5 319.0,423.3 320.0,440.0 C321.0,456.7 321.7,490.0 322.0,500.0 L78.0,500.0 C78.3,490.0 79.0,456.7 80.0,440.0 C81.0,423.3 81.3,412.5 84.0,400.0 C86.7,387.5 89.0,375.0 96.0,365.0 C103.0,355.0 116.7,347.8 126.0,340.0 C135.3,332.2 149.3,324.7 152.0,318.0 C154.7,311.3 145.0,306.3 142.0,300.0 C139.0,293.7 133.0,286.3 134.0,280.0 C135.0,273.7 147.0,267.2 148.0,262.0 C149.0,256.8 139.7,253.3 140.0,249.0 C140.3,244.7 150.3,240.2 150.0,236.0 C149.7,231.8 139.0,227.8 138.0,224.0 C137.0,220.2 140.3,216.5 144.0,213.0 C147.7,209.5 160.3,206.8 160.0,203.0 C159.7,199.2 148.7,195.5 142.0,190.0 C135.3,184.5 126.0,176.3 120.0,170.0 C114.0,163.7 107.0,157.8 106.0,152.0 C105.0,146.2 114.3,141.2 114.0,135.0 C113.7,128.8 107.0,124.2 104.0,115.0 C101.0,105.8 98.7,92.5 96.0,80.0 C93.3,67.5 90.3,53.3 88.0,40.0 C85.7,26.7 83.0,6.7 82.0,0.0 Z"/>
-              <rect class="frame" x="1" y="1" width="398" height="498"/>
-            </svg>
-          </button>
-          <figcaption>Что вы видите первым: вазу или два лица? Нажмите, и фигура с фоном поменяются местами. В гештальте с этого начинается разговор о том, что сейчас для вас главное.</figcaption>
-        </figure>
+  <section class="about" id="about">
+    <div class="wrap grid">
+      <div class="body">
+        <h2 class="sec-title rv">Как я работаю</h2>
+        <p class="rv">Мне важен живой и бережный контакт. Я не тороплю и не спешу «исправить» ваше состояние. Вместе мы замечаем, что происходит с вами здесь и сейчас: что вы чувствуете, чего хотите и как сами себя останавливаете. Из этого внимания обычно и появляется опора для изменений.</p>
+        <p class="rv">Я спокойно выдерживаю сильные чувства: горе, злость, тревогу, стыд. И помогаю вам тоже их выдерживать, а не отрезать от себя.</p>
+        <p class="rv">Регулярно хожу на супервизию и в личную терапию. Если вашему запросу нужен психиатр или другой специалист, скажу об этом прямо и помогу найти помощь.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="wrap split">
-      <h2>Образование</h2>
-      <div>
+      <div class="side">
+        <h2 class="sec-title rv">Образование</h2>
         <ul class="edu">
-          <li>Сертифицирован и аккредитован в <a href="https://gestalt.ru/author/emf61921-gmail-com/">Московском Гештальт Институте</a>.</li>
-          <li>Сейчас учусь на III ступени French Institute for Gestalt-therapy у Жан-Мари Робина.</li>
-          <li>Профессиональная переподготовка «Психолог, преподаватель психологии», 1500 часов. Институт имени Б.&nbsp;Д.&nbsp;Карвасарского, Санкт-Петербург.</li>
-          <li>Регулярная супервизия и личная терапия.</li>
+          <li class="rv">Сертифицирован и аккредитован в <a href="https://gestalt.ru/author/emf61921-gmail-com/">Московском Гештальт Институте</a></li>
+          <li class="rv">III ступень French Institute for Gestalt-therapy у Жан-Мари Робина (учусь сейчас)</li>
+          <li class="rv">Переподготовка «Психолог, преподаватель психологии», 1500 часов, Институт имени Б.&nbsp;Д.&nbsp;Карвасарского</li>
+          <li class="rv">Регулярная супервизия и личная терапия</li>
         </ul>
-        <p style="margin-top:.5rem"><a href="https://www.b17.ru/persevita/">Дипломы и сертификаты на b17.ru</a></p>
+        <p class="rv" style="margin-top:1.75rem"><a class="pill" href="https://www.b17.ru/persevita/">Дипломы и сертификаты</a></p>
       </div>
     </div>
   </section>
 
-  <section id="formats">
+  <div class="marquee mint rev" aria-hidden="true"><div class="track"><span>Индивидуально</span><span>Пары и семьи</span><span>Группы</span><span>Онлайн по всему миру</span><span>Очно в Набережных Челнах</span><span>Индивидуально</span><span>Пары и семьи</span><span>Группы</span><span>Онлайн по всему миру</span><span>Очно в Набережных Челнах</span><span>Индивидуально</span><span>Пары и семьи</span><span>Группы</span><span>Онлайн по всему миру</span><span>Очно в Набережных Челнах</span><span>Индивидуально</span><span>Пары и семьи</span><span>Группы</span><span>Онлайн по всему миру</span><span>Очно в Набережных Челнах</span></div></div>
+
+  <section class="about" id="formats">
     <div class="wrap">
-      <h2>Форматы и стоимость</h2>
-      <table class="price">
-        <thead><tr><th scope="col">Формат</th><th scope="col">Онлайн</th><th scope="col">Очно, Набережные Челны</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Индивидуальная терапия<span>55 минут</span></th><td>4&nbsp;000&nbsp;₽</td><td>4&nbsp;500&nbsp;₽</td></tr>
-          <tr><th scope="row">Парная терапия<span>90 минут</span></th><td>6&nbsp;000&nbsp;₽</td><td>7&nbsp;000&nbsp;₽</td></tr>
-          <tr><th scope="row">Пара с котерапевтом<span>90 минут, двое терапевтов</span></th><td colspan="2">8&nbsp;000&nbsp;₽<small>онлайн или очно</small></td></tr>
-          <tr><th scope="row">Групповая терапия<span>150–180 минут</span></th><td colspan="2">3&nbsp;000&nbsp;₽ за встречу<small>Группы набираю не постоянно: о наборе пишу в канале, о доборе можно спросить лично.</small></td></tr>
-        </tbody>
-      </table>
-      <p class="after-table">Если вы живёте не в России, можно оплатить иностранной картой. Сумма считается по курсу на день оплаты.</p>
+      <h2 class="sec-title rv">Форматы и стоимость</h2>
+      <div class="prices">
+        <div class="price rv"><h3>Индивидуальная терапия</h3><span class="dur">55 минут</span><div class="sum">4&nbsp;000&nbsp;₽<small>онлайн; очно 4&nbsp;500&nbsp;₽</small></div></div>
+        <div class="price rv d1"><h3>Парная терапия</h3><span class="dur">90 минут</span><div class="sum">6&nbsp;000&nbsp;₽<small>онлайн; очно 7&nbsp;000&nbsp;₽</small></div></div>
+        <div class="price rv d2"><h3>Пара с котерапевтом</h3><span class="dur">90 минут, двое терапевтов</span><div class="sum">8&nbsp;000&nbsp;₽<small>онлайн или очно</small></div></div>
+        <div class="price rv d3"><h3>Групповая терапия</h3><span class="dur">150–180 минут</span><div class="sum">3&nbsp;000&nbsp;₽<small>за встречу; о наборе пишу в канале</small></div></div>
+      </div>
+      <p class="note rv">Если вы живёте не в России, можно оплатить иностранной картой. Сумма считается по курсу на день оплаты.</p>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="wrap split">
-      <h2>Как записаться</h2>
-      <div>
-        <ol class="steps">
-          <li><span>Напишите мне в Telegram или MAX, какой формат вам нужен и пару слов о запросе.</span></li>
-          <li><span>Я предложу время первой встречи.</span></li>
-          <li><span>Перед встречей прочитайте и подпишите контракт и согласие на обработку данных.</span></li>
-          <li><span>На первой встрече познакомимся, обсудим ваш запрос и решим, как будем работать дальше.</span></li>
-        </ol>
-        <div class="actions">
-          <a class="btn btn-dark" href="https://t.me/persevit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg> Написать в Telegram</a>
-          <a class="btn btn-outline" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Написать в MAX</a>
+  <section class="panel" id="contact">
+    <div class="wrap book" style="padding-top:0;padding-bottom:0">
+      <div class="grid">
+        <div>
+          <h2 class="sec-title rv">Как записаться</h2>
+          <ol class="steps">
+            <li class="rv"><span>Напишите мне в Telegram или MAX, какой формат вам нужен и пару слов о запросе.</span></li>
+            <li class="rv"><span>Я предложу время первой встречи.</span></li>
+            <li class="rv"><span>Перед встречей прочитайте и подпишите контракт и согласие на обработку данных.</span></li>
+            <li class="rv"><span>На первой встрече познакомимся, обсудим ваш запрос и решим, как будем работать дальше.</span></li>
+          </ol>
         </div>
-        <div class="docs">
-          <p><b>Документы</b></p>
-          <p><a href="dogovor.html">Контракт на психотерапию</a> и <a href="soglasie.html">согласие на обработку персональных данных</a>.</p>
-          <p><a href="podpisat.html">Подписать онлайн</a></p>
+        <div>
+          <div class="pills rv" style="margin-top:.5rem">
+            <a class="pill dark" href="https://t.me/persevit">Написать в Telegram</a>
+            <a class="pill" href="https://max.ru/u/f9LHodD0cOLFWyVBUNsO75pQWzEFT7Vb52R_yoRWe3ZuYFs75GjOOVqECag">Написать в MAX</a>
+          </div>
+          <div class="docs rv" style="background:var(--cream)">
+            <h3>Документы</h3>
+            <p><a href="dogovor.html">Контракт на психотерапию</a> и <a href="soglasie.html">согласие на обработку персональных данных</a>.</p>
+            <a class="pill" href="podpisat.html">Подписать онлайн</a>
+          </div>
+          <p class="crisis rv">Я не оказываю экстренную помощь. Если вам сейчас очень плохо или вы опасаетесь за свою жизнь, звоните 112.</p>
         </div>
-        <p class="crisis">Я не оказываю экстренную помощь. Если вам сейчас очень плохо или вы опасаетесь за свою жизнь, звоните 112.</p>
       </div>
     </div>
   </section>
 
-  <section id="read">
+  <section class="panel choc" id="read" style="margin-top:0;border-radius:3rem 3rem 0 0">
     <div class="wrap">
-      <h2>Почитать для начала</h2>
+      <h2 class="sec-title rv">Почитать для начала</h2>
       <div class="reads">
-        <a href="https://t.me/metapoh/196">Чем терапия отличается от консультации</a>
-        <a href="https://t.me/metapoh/219">Почему пары годами ругаются об одном и том же</a>
-        <a href="https://t.me/metapoh/218">Есть ли смысл в извинениях</a>
-        <a href="https://t.me/metapoh/113">Слияние — это хорошо или плохо</a>
-        <a href="https://t.me/metapoh/225">Почему нам сложно принимать решения</a>
-        <a href="https://t.me/metapoh/221">Рождение ребёнка ещё не делает мужчину отцом</a>
+        <a class="rv" href="https://t.me/metapoh/196"><b>Чем терапия отличается от консультации</b><span>Читать в канале</span></a>
+        <a class="rv d1" href="https://t.me/metapoh/219"><b>Почему пары годами ругаются об одном и том же</b><span>Читать в канале</span></a>
+        <a class="rv d2" href="https://t.me/metapoh/218"><b>Есть ли смысл в извинениях</b><span>Читать в канале</span></a>
+        <a class="rv" href="https://t.me/metapoh/113"><b>Слияние — это хорошо или плохо</b><span>Читать в канале</span></a>
+        <a class="rv d1" href="https://t.me/metapoh/225"><b>Почему нам сложно принимать решения</b><span>Читать в канале</span></a>
+        <a class="rv d2" href="https://t.me/metapoh/221"><b>Рождение ребёнка ещё не делает мужчину отцом</b><span>Читать в канале</span></a>
       </div>
     </div>
   </section>
 
   <section class="channels" id="channels">
     <div class="wrap">
-      <h2>Мои каналы и страницы</h2>
-      <p class="sub">Пишу о терапии, отношениях и о том, как устроена психика, простыми словами.</p>
-      <div class="chgrid">
-        <a href="https://t.me/metapoh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg><b>Telegram-канал</b><span>«Метафизика похмелья»</span></a>
-        <a href="https://max.ru/channel_metapoh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><b>Канал в MAX</b><span>metapoh</span></a>
-        <a href="https://instagram.com/persevita.psy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg><b>Instagram</b><span>@persevita.psy</span></a>
-        <a href="https://vk.ru/persevita_psy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.8 14.3c2.3.1 4 1.6 4.7 4.2"/></svg><b>ВКонтакте</b><span>persevita_psy</span></a>
-        <a href="https://www.b17.ru/persevita/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg><b>b17.ru</b><span>Профиль и дипломы</span></a>
+      <h2 class="sec-title rv">Мои каналы и страницы</h2>
+      <p class="rv">Пишу о терапии, отношениях и о том, как устроена психика, простыми словами.</p>
+      <div class="pills rv">
+        <a class="pill" href="https://t.me/metapoh">Telegram-канал</a>
+        <a class="pill" href="https://max.ru/channel_metapoh">Канал в MAX</a>
+        <a class="pill" href="https://instagram.com/persevita.psy">Instagram</a>
+        <a class="pill" href="https://vk.ru/persevita_psy">ВКонтакте</a>
+        <a class="pill" href="https://www.b17.ru/persevita/">b17.ru</a>
       </div>
     </div>
   </section>
@@ -364,18 +343,22 @@
 
 <footer>
   <div class="wrap">
-    <p>Антон Валерьевич Зарипов, психолог, гештальт- и семейный терапевт</p>
-    <p class="links"><a href="dogovor.html">Контракт</a><a href="soglasie.html">Согласие на обработку данных</a><a href="podpisat.html">Подписать онлайн</a></p>
+    <div>
+      <span class="brand">Антон Зарипов</span>
+      <small>Психолог, гештальт- и семейный терапевт</small>
+    </div>
+    <div><a href="dogovor.html">Контракт</a><a href="soglasie.html">Согласие на обработку данных</a><a href="podpisat.html">Подписать онлайн</a></div>
   </div>
 </footer>
 
 <script>
   (function(){
     var fg=document.getElementById('fg'), b=fg.querySelector('button');
-    b.addEventListener('click',function(){
-      var on=fg.classList.toggle('swap');
-      b.setAttribute('aria-pressed',on?'true':'false');
-    });
+    b.addEventListener('click',function(){var on=fg.classList.toggle('swap');b.setAttribute('aria-pressed',on?'true':'false');});
+    var els=document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e)});
   })();
 </script>
 </body>
