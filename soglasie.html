@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Onest:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--paper:#EEF0EC;--ink:#22302C;--dusk:#31455A;--moss:#5B6F5E;--mist:#D6DDD8;--plum:#6E4B5E;
+  :root{--paper:#F2F3EF;--ink:#1D2724;--dusk:#1F3A33;--moss:#55635E;--mist:#D5DBD6;--plum:#2B4A42;
     --serif:"Literata",Georgia,serif;--sans:"Onest",system-ui,sans-serif}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
@@ -31,6 +31,9 @@
   .sign div{display:flex;gap:1rem;align-items:flex-end}
   .sign span{white-space:nowrap}
   .sign i{flex:1;border-bottom:1px solid var(--ink);height:1.2em}
+  .cta{margin-top:2.75rem}
+  .btn{display:inline-block;background:var(--dusk);color:var(--paper);text-decoration:none;padding:.95rem 1.5rem;border-radius:999px;font-weight:500}
+  .btn:hover{background:var(--plum);color:var(--paper)}
   .print{margin-top:2.5rem;font-size:.95rem;color:var(--moss)}
   footer{margin-top:3rem;font-size:.92rem;color:var(--moss)}
   @media print{
@@ -51,7 +54,7 @@
     <h1>Согласие на обработку персональных данных</h1>
     <p class="lead">В соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
 
-    <p>Я, <span style="display:inline-block;min-width:16rem;border-bottom:1px solid var(--ink)">&nbsp;</span>, свободно, своей волей и в своём интересе даю согласие психологу Зарипову Антону Валерьевичу (применяет налог на профессиональный доход, г. Набережные Челны; далее — Оператор) на обработку моих персональных данных на следующих условиях.</p>
+    <p>Отмечая согласие в <a href="podpisat.html">форме подписания</a>, я свободно, своей волей и в своём интересе даю согласие психологу Зарипову Антону Валерьевичу (применяет налог на профессиональный доход, г. Набережные Челны; далее — Оператор) на обработку моих персональных данных на следующих условиях.</p>
 
     <h2>Какие данные обрабатываются</h2>
     <ul>
@@ -61,7 +64,7 @@
       <li>сведения о состоянии здоровья, которые я сообщаю сам, в том числе о приёме лекарств, назначенных врачом;</li>
       <li>сведения об оплате консультаций.</li>
     </ul>
-    <p>Сведения о состоянии здоровья относятся к специальной категории персональных данных. Подписывая это согласие, я даю согласие и на их обработку в письменной форме (ч. 4 ст. 9 и ч. 2 ст. 10 Федерального закона № 152-ФЗ).</p>
+    <p>Сведения о состоянии здоровья относятся к специальной категории персональных данных. Отмечая это согласие, я даю согласие и на их обработку в письменной форме (ч. 4 ст. 9 и ч. 2 ст. 10 Федерального закона № 152-ФЗ).</p>
 
     <h2>Для чего</h2>
     <ul>
@@ -82,13 +85,8 @@
     <h2>О сайте</h2>
     <p>На сайте persevita.top нет счётчиков посещаемости и рекламных cookie. Данные собираются только через <a href="podpisat.html">форму подписания документов</a>: она работает на сервисе Яндекс Формы, ответы хранятся на серверах в России и доступны только Оператору. Отметка в форме и отправка формы означают моё согласие на изложенных выше условиях.</p>
 
-    <p style="margin-top:2.5rem"><a href="podpisat.html" style="display:inline-block;background:var(--dusk);color:var(--paper);text-decoration:none;padding:.9rem 1.5rem;border-radius:999px;font-weight:500">Подписать онлайн</a></p>
-    <p style="font-size:.95rem;color:var(--moss)">Или распечатайте документ и подпишите вручную:</p>
-    <div class="sign">
-      <div><span>ФИО:</span><i></i></div>
-      <div><span>Дата:</span><i></i></div>
-      <div><span>Подпись:</span><i></i></div>
-    </div>
+    <p>Согласие подписывается вместе с <a href="dogovor.html">контрактом на психотерапию</a>.</p>
+    <p class="cta"><a class="btn" href="podpisat.html">Подписать контракт и согласие онлайн</a></p>
 
   </main>
   <p class="print">Документ можно распечатать из браузера (Ctrl+P) или сохранить как PDF.</p>
